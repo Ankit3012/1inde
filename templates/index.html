@@ -1,0 +1,346 @@
+{% extends "base.html" %}
+{% load static %}
+
+        <!-- End of Sidebar -->
+{% block content %}
+        
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between">
+                        <h1 class="h3 mb-0 text-gray-800">Today's Live Result</h1>
+                        <img class="d-none d-sm-inline-block" style="width: 10%" src="{% static 'giphy3.gif' %}" alt="...">
+                        <img class="d-none d-sm-inline-block" style="width: 10%" src="{% static 'giphy1.gif' %}" alt="...">
+                        <img class="d-none d-sm-inline-block" style="width: 10%" src="{% static 'giphy2.gif' %}" alt="...">
+                       
+                    </div>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4" >
+                    <h4>आज का लाइव रिजल्ट <span><img style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4></div>
+                    <!-- Content Row -->
+                    <div class="row">
+                        {% for i in cur_data %}
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-primary text-uppercase mb-1">
+                                                SG [ श्री गणेश   ]</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.sg}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-success text-uppercase mb-1">
+                                                FB [ फरीदाबाद ]</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.fb}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-info text-uppercase mb-1">GB [ ग़ज़िआबाद  ]
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.gb}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-warning text-uppercase mb-1">
+                                                Gali [ गली ]</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.gali}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-danger shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-danger text-uppercase mb-1">
+                                                DS [ देसावर ]</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.ds}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Profit Growth of फंटर </h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myAreaChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">TIMING</h6>
+                                    <img class="d-none d-sm-inline-block" style="width: 10%" src="{% static 'newgif.gif' %}" alt="...">
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <!-- <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div> -->
+                                    
+                                
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold"> SRI GANESH<span
+                                            class="float-right">{ 1pm- 4pm }</span></h4>
+                                    <div class="mb-4">
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                    </div>
+                                    <h4 class="small font-weight-bold">FARIDABAD <span
+                                            class="float-right">{ 4pm- 6pm }</span></h4>
+                                     <div class="mb-4">
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 7pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                    </div>
+
+                                    <h4 class="small font-weight-bold"> GHAZIABAD<span
+                                            class="float-right">{ 6pm- 8pm }</span></h4>
+                                    <div class="mb-4">
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 9pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                    </div>
+                                    <h4 class="small font-weight-bold">GALI <span
+                                            class="float-right">{ 9pm- 11pm }</span></h4>
+                                    <div class="mb-4">
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 12pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                    </div>
+                                    <h4 class="small font-weight-bold">DESAWAR <span
+                                            class="float-right">{ 11pm- 3pm }</span></h4>
+                                    <div class="mb-4">
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 9am ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                    </div>
+                                </div>
+                            
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                           
+
+                    
+                                     <!-- DataTales Example -->
+                  <div class="col-xl-18 col-lg-12">
+                    <div class="card shadow mb-4">
+                        
+                        <!--  -->
+                        <div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" width="100%" cellspacing="0" id="dataTable1">
+            <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>SG</th>
+                                            <th>FB</th>
+                                            <th>GB</th>
+                                            <th>Gali</th>
+                                            <th>DS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in data reversed %}
+                                        <tr>
+                                            <td>{{ i.date }}</td>
+                                            <td>{{ i.sg }}</td>
+                                            <td>{{ i.fb }}</td>
+                                            <td>{{ i.gb }}</td>
+                                            <td>{{ i.gali }}</td>
+                                            <td>{{ i.ds }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+            <!-- Table headers and body -->
+        </table>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function fetchTableData() {
+        $.get('/get_table_data/', function(data) {
+            
+            updateTable(data);
+        });
+    }
+
+    function updateTable(data) {
+        var tableBody = $('#dataTable1 tbody');
+        tableBody.empty();
+
+        $.each(data.data, function(index, item) {
+            var row = $('<tr>');
+            row.append($('<td>').text(item.date));
+            row.append($('<td>').text(item.sg));
+            row.append($('<td>').text(item.fb));
+            row.append($('<td>').text(item.gb));
+            row.append($('<td>').text(item.gali));
+            row.append($('<td>').text(item.ds));
+            tableBody.append(row);
+        });
+    }
+
+    // Fetch data every 5 seconds
+    setInterval(fetchTableData, 5000);
+
+    // Initial fetch
+    fetchTableData();
+</script>
+
+
+
+
+                        <!--  -->
+                        <!-- <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>SG</th>
+                                            <th>FB</th>
+                                            <th>GB</th>
+                                            <th>Gali</th>
+                                            <th>DS</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>SG</th>
+                                            <th>FB</th>
+                                            <th>GB</th>
+                                            <th>Gali</th>
+                                            <th>DS</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for i in alldata %}
+                                        <tr>
+                                            <td>{{ i.date|date:"Y-m-d" }}</td>
+                                            <td>{{ i.sg }}</td>
+                                            <td>{{ i.fb }}</td>
+                                            <td>{{ i.gb }}</td>
+                                            <td>{{ i.gali }}</td>
+                                            <td>{{ i.ds }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                        
+                                       
+                                    </tbody>
+                                </table>
+                            </div>                        
+                    </div> -->
+                    <!--  -->
+                </div>
+            </div>
+
+                   
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+
+
+{% endblock %}

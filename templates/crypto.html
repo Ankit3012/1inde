@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+.card-img-top{
+    width:50%;
+}
+{% endblock %}
+        <!-- End of Sidebar -->
+{% block content %}
+<div class="col-xl-12 mt-4 col-lg-5">
+
+<div class="card-group">
+  <div class="card">
+    <img class="card-img-top" src="{% static 'coin.gif' %}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">BTCUSDT</h5>
+      <p>{{crypto.BTCUSDT}}</p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="{% static 'coin.gif' %}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">DOGEUSDT</h5>
+      <p>{{crypto.DOGEUSDT}}</p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="{% static 'coin.gif' %}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">LTCUSDT</h5>
+      <p>{{crypto.LTCUSDT}}</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="col-xl-12 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">TIMING</h6>
+                                    <img class="d-none d-sm-inline-block" style="width: 10%" src="{% static 'newgif.gif' %}" alt="...">
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div id="crypto-data">
+        <!-- Display crypto data here -->
+        {% for symbol, price in crypto.items %}
+            <p>{{ symbol }}: {{ price }}</p>
+        {% endfor %}
+    </div>
+                                </div>
+                            </div>
+                        </div>
+<script>
+        function getCryptoData() {
+            $.get('/get_crypto_data/', function(data) {
+                // Replace the content of the 'crypto-data' div with the updated data
+                $('#crypto-data').html('');
+                $.each(data, function(symbol, price) {
+                    $('#crypto-data').append('<p>' + symbol + ': ' + price + '</p>');
+                });
+            });
+        }
+
+        // Fetch crypto data every 5 seconds
+        setInterval(getCryptoData, 5000);
+    </script>
+
+
+{% endblock %}

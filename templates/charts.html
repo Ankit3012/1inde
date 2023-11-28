@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
+        <!-- End of Sidebar -->
+{% block content %}
+<!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">TIMING</h6>
+                                    <img class="d-none d-sm-inline-block" style="width: 10%" src="{% static 'newgif.gif' %}" alt="...">
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <!-- <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div> -->
+                                    
+                                
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold"> SRI GANESH<span
+                                            class="float-right">{ 1pm- 4pm }</span></h4>
+                                    <div class="mb-4">
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                    </div>
+                                    <h4 class="small font-weight-bold">FARIDABAD <span
+                                            class="float-right">{ 4pm- 6pm }</span></h4>
+                                     <div class="mb-4">
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                    </div>
+
+                                    <h4 class="small font-weight-bold"> GHAZIABAD<span
+                                            class="float-right">{ 6pm- 8pm }</span></h4>
+                                    <div class="mb-4">
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                    </div>
+                                    <h4 class="small font-weight-bold">GALI <span
+                                            class="float-right">{ 9pm- 11pm }</span></h4>
+                                    <div class="mb-4">
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                    </div>
+                                    <h4 class="small font-weight-bold">DESAWAR <span
+                                            class="float-right">{ 11pm- 3pm }</span></h4>
+                                    <div class="mb-4">
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                    </div>
+                                </div>
+                            
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                           
+
+                    
+                                     <!-- DataTales Example -->
+                  <div class="col-xl-18 col-lg-12">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Yahan Aap Month Aur Year Select Karke Shri Ganesh, Gali, Deshawar, Ghyaziabad Aur Faridabad Ka Combined Chart Dekh Sakte Hai.</h6>
+                            <div class="card flex-row m-auto">
+                                <form class="card-body" method="post" action="{% url 'charts' %}">
+                                    {% csrf_token %}
+                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="month">
+                                         <option selected>Month</option>
+                                        <option value="1">Jan</option>
+                                        <option value="2">Feb</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">Aug</option>
+                                        <option value="9">Sep</option>
+                                        <option value="10">Oct</option>
+                                        <option value="11">Nov</option>
+                                        <option value="12">Dec</option>
+                                    </select>
+
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="year">
+                                  <option selected>Year</option>
+                                  <option value="2023">2023</option>
+                                  <option value="2022">2022</option>
+                                  <option value="2021">2021</option>
+                                </select>
+                                <input type="submit" name="">
+                           </form>
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>SG</th>
+                                            <th>FB</th>
+                                            <th>GB</th>
+                                            <th>Gali</th>
+                                            <th>DS</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>SG</th>
+                                            <th>FB</th>
+                                            <th>GB</th>
+                                            <th>Gali</th>
+                                            <th>DS</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for i in alldata %}
+                                            <tr>
+                                                <td>{{ i.date|date:"Y-m-d" }}</td>
+
+                                                <td>{{ i.sg }}</td>
+                                                <td>{{ i.fb }}</td>
+                                                <td>{{ i.gb }}</td>
+                                                <td>{{ i.gali }}</td>
+                                                <td>{{ i.ds }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                                                                
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+{% endblock %}
