@@ -19,31 +19,31 @@
                                     
                                 
                                 <div class="card-body">
-                                    <h4 class="small font-weight-bold"> SRI GANESH<span
+                                    <h4 class="small font-weight-bold"> SRI Nagar<span
                                             class="float-right">{ 1pm- 4pm }</span></h4>
                                     <div class="mb-4">
                                             <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
                                     </div>
-                                    <h4 class="small font-weight-bold">FARIDABAD <span
+                                    <h4 class="small font-weight-bold">Firozabad<span
                                             class="float-right">{ 4pm- 6pm }</span></h4>
                                      <div class="mb-4">
-                                            <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 7pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
                                     </div>
 
-                                    <h4 class="small font-weight-bold"> GHAZIABAD<span
+                                    <h4 class="small font-weight-bold"> Gautam Buddha<span
                                             class="float-right">{ 6pm- 8pm }</span></h4>
                                     <div class="mb-4">
-                                            <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 9pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
                                     </div>
-                                    <h4 class="small font-weight-bold">GALI <span
+                                    <h4 class="small font-weight-bold">Nazi<span
                                             class="float-right">{ 9pm- 11pm }</span></h4>
                                     <div class="mb-4">
-                                            <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 12pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
                                     </div>
-                                    <h4 class="small font-weight-bold">DESAWAR <span
+                                    <h4 class="small font-weight-bold">Delhi <span
                                             class="float-right">{ 11pm- 3pm }</span></h4>
                                     <div class="mb-4">
-                                            <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
+                                            <h4 class="small font-weight-bold">Result:  <span>[ 9am ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
                                     </div>
                                 </div>
                             
@@ -60,7 +60,7 @@
                   <div class="col-xl-18 col-lg-12">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Yahan Aap Month Aur Year Select Karke Shri Ganesh, Gali, Deshawar, Ghyaziabad Aur Faridabad Ka Combined Chart Dekh Sakte Hai.</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Yahan Aap Month Aur Year Select Karke Shri Nagar, Firozabad, Gautam Buddha, Nazi Aur Delhi Ka Combined Chart Dekh Sakte Hai.</h6>
                             <div class="card flex-row m-auto">
                                 <form class="card-body" method="post" action="{% url 'charts' %}">
                                     {% csrf_token %}
@@ -97,33 +97,24 @@
                                     <thead>
                                         <tr>
                                             <th>Date</th>
-                                            <th>SG</th>
+                                            <th>SN</th>
                                             <th>FB</th>
                                             <th>GB</th>
-                                            <th>Gali</th>
-                                            <th>DS</th>
+                                            <th>Nazi</th>
+                                            <th>DL</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>SG</th>
-                                            <th>FB</th>
-                                            <th>GB</th>
-                                            <th>Gali</th>
-                                            <th>DS</th>
-                                        </tr>
-                                    </tfoot>
+                                    
                                     <tbody>
                                         {% for i in alldata %}
                                             <tr>
                                                 <td>{{ i.date|date:"Y-m-d" }}</td>
 
-                                                <td>{{ i.sg }}</td>
+                                                <td>{{ i.sn }}</td>
                                                 <td>{{ i.fb }}</td>
                                                 <td>{{ i.gb }}</td>
-                                                <td>{{ i.gali }}</td>
-                                                <td>{{ i.ds }}</td>
+                                                <td>{{ i.nazi }}</td>
+                                                <td>{{ i.dl }}</td>
                                             </tr>
                                         {% endfor %}
                                                                                 

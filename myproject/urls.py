@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
-    path('0xeFC377947DFEB355F46692ce59D5D8E227655661/', admin.site.urls),
+    path('iamadminpleaseopentheadminpanelforme/', admin.site.urls),
     path('', include('pool.urls')),
 ]

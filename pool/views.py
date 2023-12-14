@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Ghadi
 import requests
 from django.http import JsonResponse
 from datetime import date
+from django.views.decorators.csrf import csrf_exempt
 from django.views import View
 # Create your views here.
 class GetTableDataView(View):
@@ -28,7 +29,7 @@ def index(request):
     print(cur_data)
 
     return render(request,'index.html',{'data': data,'cur_data': cur_data})
-
+@csrf_exempt
 def crypto(request):
     key = "https://api.binance.com/api/v3/ticker/price?symbol="
     # Making list for multiple crypto's
@@ -46,6 +47,7 @@ def crypto(request):
         crypto[data['symbol']] = data['price']
     print(crypto)
     return render(request,'crypto.html',{'crypto':crypto})
+@csrf_exempt
 def get_crypto_data(request):
     key = "https://api.binance.com/api/v3/ticker/price?symbol="
 
@@ -60,6 +62,8 @@ def get_crypto_data(request):
         crypto[data['symbol']] = data['price']
 
     return JsonResponse(crypto)
+
+@csrf_exempt
 def charts(request):
     if request.method == 'POST':
         month = request.POST.get('month')
@@ -85,3 +89,47 @@ def charts(request):
     return render(request, 'charts.html', {'alldata': alldata})
 def info(request):
     return render(request,'info.html')
+
+@csrf_exempt
+def login(request):
+    if request.method == 'POST':
+        # if request.POST.get('email'):
+        email=request.POST.get('email')
+        password=request.POST.get('pass')
+        if email=='ag61219130' and password=='python@123':
+            return redirect('edit_all_ghadi')
+        else:
+            return render(request, 'login.html')
+
+    return render(request,'login.html')
+
+@csrf_exempt
+def edit_all_ghadi(request):
+
+    ghadi_data = Ghadi.objects.all()[:10]
+
+    if request.method == 'POST':
+        for ghadi in ghadi_data:
+            ghadi.sn = request.POST.get(f'sn_{ghadi.id}')
+            ghadi.fb = request.POST.get(f'fb_{ghadi.id}')
+            ghadi.gb = request.POST.get(f'gb_{ghadi.id}')
+            ghadi.nazi = request.POST.get(f'nazi_{ghadi.id}')
+            ghadi.dl = request.POST.get(f'dl_{ghadi.id}')
+            # ghadi.date = request.POST.get(f'date_{ghadi.id}')
+            ghadi.save()
+
+        return render(request,'diclare.html')
+
+    context = {
+        'ghadi_data': ghadi_data,
+    }
+    print(context)
+
+    return render(request,'diclare.html',context)
+
+@csrf_exempt
+def create_default_data(request):
+    # Create new default data
+    Ghadi.objects.create()
+
+    return redirect('edit_all_ghadi')

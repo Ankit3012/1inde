@@ -5,20 +5,20 @@
 {% block content %}
         
                 <!-- End of Topbar -->
-
+                
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between">
-                        <h1 class="h3 mb-0 text-gray-800">Today's Live Result</h1>
+                        <h2 class="h1 mb-0 text-gray-800" style="font-weight: 900;">Today's Live Result</h2>
                         <img class="d-none d-sm-inline-block" style="width: 10%" src="{% static 'giphy3.gif' %}" alt="...">
                         <img class="d-none d-sm-inline-block" style="width: 10%" src="{% static 'giphy1.gif' %}" alt="...">
                         <img class="d-none d-sm-inline-block" style="width: 10%" src="{% static 'giphy2.gif' %}" alt="...">
                        
                     </div>
                     <div class="d-sm-flex align-items-center justify-content-between mb-4" >
-                    <h4>आज का लाइव रिजल्ट <span><img style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4></div>
+                    <h3 style="font-weight: 800;">आज का लाइव रिजल्ट <span><img style="width: 10%" src="{% static 'newgif.gif' %}"></span></h3></div>
                     <!-- Content Row -->
                     <div class="row">
                         {% for i in cur_data %}
@@ -30,8 +30,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xl font-weight-bold text-primary text-uppercase mb-1">
-                                                SG [ श्री गणेश   ]</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.sg}}</div>
+                                                SN [ श्री नगर   ]</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.sn}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -48,7 +48,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xl font-weight-bold text-success text-uppercase mb-1">
-                                                FB [ फरीदाबाद ]</div>
+                                                FB [ फिरोजाबाद ]</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.fb}}</div>
                                         </div>
                                         <div class="col-auto">
@@ -65,7 +65,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xl font-weight-bold text-info text-uppercase mb-1">GB [ ग़ज़िआबाद  ]
+                                            <div class="text-xl font-weight-bold text-info text-uppercase mb-1">GB [ गौतम बुद्ध  ]
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.gb}}</div>
                                         </div>
@@ -84,8 +84,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xl font-weight-bold text-warning text-uppercase mb-1">
-                                                Gali [ गली ]</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.gali}}</div>
+                                                Nazi [ नाजी ]</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.nazi}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -101,8 +101,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xl font-weight-bold text-danger text-uppercase mb-1">
-                                                DS [ देसावर ]</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.ds}}</div>
+                                                DL [ दिल्ली ]</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{i.dl}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -165,28 +165,28 @@
                                     
                                 
                                 <div class="card-body">
-                                    <h4 class="small font-weight-bold"> SRI GANESH<span
+                                    <h4 class="small font-weight-bold"> SRI NAGAR<span
                                             class="float-right">{ 1pm- 4pm }</span></h4>
                                     <div class="mb-4">
                                             <h4 class="small font-weight-bold">Result:  <span>[ 5pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
                                     </div>
-                                    <h4 class="small font-weight-bold">FARIDABAD <span
+                                    <h4 class="small font-weight-bold">FIROZABAD <span
                                             class="float-right">{ 4pm- 6pm }</span></h4>
                                      <div class="mb-4">
                                             <h4 class="small font-weight-bold">Result:  <span>[ 7pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
                                     </div>
 
-                                    <h4 class="small font-weight-bold"> GHAZIABAD<span
+                                    <h4 class="small font-weight-bold"> GAUTAM BUDDHA<span
                                             class="float-right">{ 6pm- 8pm }</span></h4>
                                     <div class="mb-4">
                                             <h4 class="small font-weight-bold">Result:  <span>[ 9pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
                                     </div>
-                                    <h4 class="small font-weight-bold">GALI <span
+                                    <h4 class="small font-weight-bold">NAZI <span
                                             class="float-right">{ 9pm- 11pm }</span></h4>
                                     <div class="mb-4">
                                             <h4 class="small font-weight-bold">Result:  <span>[ 12pm ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
                                     </div>
-                                    <h4 class="small font-weight-bold">DESAWAR <span
+                                    <h4 class="small font-weight-bold">DELHI <span
                                             class="float-right">{ 11pm- 3pm }</span></h4>
                                     <div class="mb-4">
                                             <h4 class="small font-weight-bold">Result:  <span>[ 9am ]<img class="float-right" style="width: 10%" src="{% static 'newgif.gif' %}"></span></h4>
@@ -213,22 +213,22 @@
             <thead>
                                         <tr>
                                             <th>Date</th>
-                                            <th>SG</th>
+                                            <th>SN</th>
                                             <th>FB</th>
                                             <th>GB</th>
-                                            <th>Gali</th>
-                                            <th>DS</th>
+                                            <th>Nazi</th>
+                                            <th>Delhi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     {% for i in data reversed %}
                                         <tr>
                                             <td>{{ i.date }}</td>
-                                            <td>{{ i.sg }}</td>
+                                            <td>{{ i.sn }}</td>
                                             <td>{{ i.fb }}</td>
                                             <td>{{ i.gb }}</td>
-                                            <td>{{ i.gali }}</td>
-                                            <td>{{ i.ds }}</td>
+                                            <td>{{ i.nazi }}</td>
+                                            <td>{{ i.dl }}</td>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
@@ -253,11 +253,11 @@
         $.each(data.data, function(index, item) {
             var row = $('<tr>');
             row.append($('<td>').text(item.date));
-            row.append($('<td>').text(item.sg));
+            row.append($('<td>').text(item.sn));
             row.append($('<td>').text(item.fb));
             row.append($('<td>').text(item.gb));
-            row.append($('<td>').text(item.gali));
-            row.append($('<td>').text(item.ds));
+            row.append($('<td>').text(item.nazi));
+            row.append($('<td>').text(item.dl));
             tableBody.append(row);
         });
     }
@@ -269,51 +269,6 @@
     fetchTableData();
 </script>
 
-
-
-
-                        <!--  -->
-                        <!-- <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>SG</th>
-                                            <th>FB</th>
-                                            <th>GB</th>
-                                            <th>Gali</th>
-                                            <th>DS</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>SG</th>
-                                            <th>FB</th>
-                                            <th>GB</th>
-                                            <th>Gali</th>
-                                            <th>DS</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        {% for i in alldata %}
-                                        <tr>
-                                            <td>{{ i.date|date:"Y-m-d" }}</td>
-                                            <td>{{ i.sg }}</td>
-                                            <td>{{ i.fb }}</td>
-                                            <td>{{ i.gb }}</td>
-                                            <td>{{ i.gali }}</td>
-                                            <td>{{ i.ds }}</td>
-                                        </tr>
-                                    {% endfor %}
-                                        
-                                       
-                                    </tbody>
-                                </table>
-                            </div>                        
-                    </div> -->
-                    <!--  -->
                 </div>
             </div>
 
@@ -329,7 +284,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; 2021-2023 1 ka 20 Satta King</span>
                     </div>
                 </div>
             </footer>
