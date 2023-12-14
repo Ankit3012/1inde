@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Ghadi Data</title>
+</head>
+<body>
+    <h2>Edit Ghadi Data</h2>
+    <form method="post" action="{% url 'edit_all_ghadi' %}">
+        {% csrf_token %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>SN</th>
+                    <th>FB</th>
+                    <th>GB</th>
+                    <th>Nazi</th>
+                    <th>DL</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ghadi in ghadi_data %}
+                <tr>
+                    <td><input type="text" name="sn_{{ ghadi.id }}" value="{{ ghadi.sn }}"></td>
+                    <td><input type="text" name="fb_{{ ghadi.id }}" value="{{ ghadi.fb }}"></td>
+                    <td><input type="text" name="gb_{{ ghadi.id }}" value="{{ ghadi.gb }}"></td>
+                    <td><input type="text" name="nazi_{{ ghadi.id }}" value="{{ ghadi.nazi }}"></td>
+                    <td><input type="text" name="dl_{{ ghadi.id }}" value="{{ ghadi.dl }}"></td>
+                    <td><input type="text" name="date_{{ ghadi.id }}" value="{{ ghadi.date }}"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+
+    <form method="post" action="{% url 'create_default_data' %}">
+        {% csrf_token %}
+        <input type="submit" value="Create New Default Data">
+    </form>
+</body>
+</html>
