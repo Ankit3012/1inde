@@ -97,6 +97,7 @@
                     <td><input type="text" name="nazi_{{ ghadi.id }}" value="{{ ghadi.nazi }}"></td>
                     <td><input type="text" name="dl_{{ ghadi.id }}" value="{{ ghadi.dl }}"></td>
                     <td><input type="text" name="date_{{ ghadi.id }}" value="{{ ghadi.date|date:'Y-m-d' }}"></td>
+                    <td><button type="button" class="delete-button" onclick="confirmDelete('{{ ghadi.id }}')">Delete</button></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -107,6 +108,34 @@
         {% csrf_token %}
         <input type="submit" value="Create New Default Data">
     </form>
+
+    <script>
+    function confirmDelete(ghadiId) {
+        if (confirm("Are you sure you want to delete this record?")) {
+            // Use fetch API to send a DELETE request to the API endpoint
+            fetch('{% url "delete_ghadi_record" 0 %}'.replace('0', ghadiId), {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Remove the row from the table on successful deletion
+                    var rowToRemove = document.querySelector("input[name='sn_" + ghadiId + "']").parentNode.parentNode;
+                    rowToRemove.parentNode.removeChild(rowToRemove);
+                } else {
+                    alert('Error deleting record.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error deleting record.');
+            });
+        }
+    }
+</script>
 </body>
 </html>
 

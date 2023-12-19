@@ -12,6 +12,7 @@ urlpatterns = [
     path('login/', login, name="login"),
     path('edit-all/', edit_all_ghadi, name='edit_all_ghadi'),
     path('create-default/', create_default_data, name='create_default_data'),
+    path('delete/<int:pk>/', delete_ghadi_record, name='delete_ghadi_record'),
     path('get_table_data/', GetTableDataView.as_view(), name='get_table_data'),
 
 ]

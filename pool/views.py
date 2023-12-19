@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Ghadi
 import requests
+from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from datetime import date
 from django.views.decorators.csrf import csrf_exempt
@@ -132,3 +133,13 @@ def create_default_data(request):
     Ghadi.objects.create()
 
     return redirect('edit_all_ghadi')
+
+
+def delete_ghadi_record(request, pk):
+    ghadi = get_object_or_404(Ghadi, pk=pk)
+
+    if request.method == 'DELETE':
+        ghadi.delete()
+        return JsonResponse({'message': 'Record deleted successfully.'}, status=200)
+    else:
+        return JsonResponse({'error': 'Invalid request method.'}, status=400)
