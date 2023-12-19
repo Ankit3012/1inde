@@ -115,7 +115,7 @@ def edit_all_ghadi(request):
             ghadi.gb = request.POST.get(f'gb_{ghadi.id}')
             ghadi.nazi = request.POST.get(f'nazi_{ghadi.id}')
             ghadi.dl = request.POST.get(f'dl_{ghadi.id}')
-            # ghadi.date = request.POST.get(f'date_{ghadi.id}')
+            ghadi.date = request.POST.get(f'date_{ghadi.id}')
             ghadi.save()
 
         return render(request,'diclare.html')
@@ -123,7 +123,6 @@ def edit_all_ghadi(request):
     context = {
         'ghadi_data': ghadi_data,
     }
-    print(context)
 
     return render(request,'diclare.html',context)
 

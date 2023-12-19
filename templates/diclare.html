@@ -4,12 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Ghadi Data</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 100%;
+/*            padding: 8px;*/
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Media query for mobile responsiveness */
+        @media (max-width: 600px) {
+            form {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            input[type="text"], input[type="submit"] {
+                width: 100%;
+                margin-bottom: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
     <h2>Edit Ghadi Data</h2>
     <form method="post" action="{% url 'edit_all_ghadi' %}">
         {% csrf_token %}
-        <table border="1">
+        <table>
             <thead>
                 <tr>
                     <th>SN</th>
@@ -28,17 +96,17 @@
                     <td><input type="text" name="gb_{{ ghadi.id }}" value="{{ ghadi.gb }}"></td>
                     <td><input type="text" name="nazi_{{ ghadi.id }}" value="{{ ghadi.nazi }}"></td>
                     <td><input type="text" name="dl_{{ ghadi.id }}" value="{{ ghadi.dl }}"></td>
-                    <td><input type="text" name="date_{{ ghadi.id }}" value="{{ ghadi.date }}"></td>
+                    <td><input type="text" name="date_{{ ghadi.id }}" value="{{ ghadi.date|date:'Y-m-d' }}"></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         <input type="submit" value="Submit">
     </form>
-
-    <form method="post" action="{% url 'create_default_data' %}">
+        <form method="post" action="{% url 'create_default_data' %}">
         {% csrf_token %}
         <input type="submit" value="Create New Default Data">
     </form>
 </body>
 </html>
+
