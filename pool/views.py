@@ -97,7 +97,8 @@ def login(request):
         # if request.POST.get('email'):
         email=request.POST.get('email')
         password=request.POST.get('pass')
-        if email=='ag61219130' and password=='python@123':
+        if email=='ag612191@gmail.com' and password=='python@123':
+            request.session['user_id'] = email
             return redirect('edit_all_ghadi')
         else:
             return render(request, 'login.html')
@@ -108,24 +109,31 @@ def login(request):
 def edit_all_ghadi(request):
 
     ghadi_data = Ghadi.objects.all()[:10]
+    user_id = request.session.get('user_id')
+    if not user_id or not user_id=='ag612191@gmail.com':
+        return redirect('login')
+    else:
+        if request.method == 'POST':
+            for ghadi in ghadi_data:
+                ghadi.sn = request.POST.get(f'sn_{ghadi.id}')
+                ghadi.fb = request.POST.get(f'fb_{ghadi.id}')
+                ghadi.gb = request.POST.get(f'gb_{ghadi.id}')
+                ghadi.nazi = request.POST.get(f'nazi_{ghadi.id}')
+                ghadi.dl = request.POST.get(f'dl_{ghadi.id}')
+                ghadi.date = request.POST.get(f'date_{ghadi.id}')
+                ghadi.save()
+            ghadi_data1 = Ghadi.objects.all()[:10]
+            context = {
+                'ghadi_data': ghadi_data1,
+            }
 
-    if request.method == 'POST':
-        for ghadi in ghadi_data:
-            ghadi.sn = request.POST.get(f'sn_{ghadi.id}')
-            ghadi.fb = request.POST.get(f'fb_{ghadi.id}')
-            ghadi.gb = request.POST.get(f'gb_{ghadi.id}')
-            ghadi.nazi = request.POST.get(f'nazi_{ghadi.id}')
-            ghadi.dl = request.POST.get(f'dl_{ghadi.id}')
-            ghadi.date = request.POST.get(f'date_{ghadi.id}')
-            ghadi.save()
+            return render(request, 'diclare.html', context)
 
-        return render(request,'diclare.html')
+        context = {
+            'ghadi_data': ghadi_data,
+        }
 
-    context = {
-        'ghadi_data': ghadi_data,
-    }
-
-    return render(request,'diclare.html',context)
+        return render(request,'diclare.html',context)
 
 @csrf_exempt
 def create_default_data(request):
